@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoxusDynamics Portfolio</title>
+    <style>
+        /* 1. Universal Reset & Background */
+        * { box-sizing: border-box; }
+        
+        body, html {
+            margin: 0; padding: 0; 
+            height: 100%; width: 100%;
+            display: flex; justify-content: center; align-items: center;
+            /* Forest Image */
+            background: url('background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden; /* Prevents double scrolling */
+        }
+
+        /* 2. The Scaling Container 
+           This ensures the phone fits on small laptop screens 
+        */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            padding: 20px;
+        }
+
+        /* 3. iPhone 13 Hardware Frame */
+        .iphone-13 {
+            position: relative;
+            width: 300px; /* Base width */
+            height: 600px; /* Base height */
+            background: #000;
+            border: 8px solid #222;
+            border-radius: 45px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            transform-origin: center;
+        }
+
+        /* Responsive Scaling for small heights (Laptops/Tablets) */
+        @media (max-height: 700px) {
+            .iphone-13 { transform: scale(0.85); }
+        }
+        @media (max-height: 600px) {
+            .iphone-13 { transform: scale(0.75); }
+        }
+        @media (max-width: 400px) {
+            .iphone-13 { transform: scale(0.9); }
+        }
+
+        /* Hardware Notch */
+        .notch {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 150px; height: 24px; background: #000;
+            border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;
+            z-index: 30;
+        }
+
+        /* 4. The Internal Screen */
+        .screen {
+            flex-grow: 1; margin: 5px; border-radius: 38px;
+            background: #050505;
+            overflow-y: auto;
+            position: relative;
+            scrollbar-width: none;
+        }
+        .screen::-webkit-scrollbar { display: none; }
+
+        /* Header Styling */
+        .app-header {
+            padding: 45px 15px 15px;
+            background: #111;
+            text-align: center;
+            border-bottom: 1px solid #222;
+            position: sticky; top: 0; z-index: 10;
+        }
+
+        .noxus-title {
+            color: #fff; font-size: 18px; font-weight: 800;
+            letter-spacing: 1.5px; margin: 0; text-transform: uppercase;
+        }
+
+        .sub-heading {
+            color: #00ffcc; font-size: 10px; margin-top: 4px;
+            font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+
+        /* Portfolio Links */
+        .works-container { padding: 15px; }
+
+        .work-card {
+            background: #151515; border-radius: 12px;
+            padding: 12px; margin-bottom: 12px;
+            text-decoration: none; display: block;
+            border: 1px solid #222; transition: 0.3s;
+        }
+
+        .work-card:hover { border-color: #00ffcc; background: #1a1a1a; }
+
+        .work-name { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+        .work-desc { color: #888; font-size: 10px; line-height: 1.4; }
+        .visit-link { display: block; margin-top: 8px; color: #00ffcc; font-size: 10px; font-weight: bold; }
+
+        /* Reflection Effect */
+        .iphone-13::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 45px; pointer-events: none; z-index: 40;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent 50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="iphone-13">
+            <div class="notch"></div>
+            
+            <div class="screen">
+                <div class="app-header">
+                    <h1 class="noxus-title">noxusdynamics</h1>
+                    <div class="sub-heading">our recent works</div>
+                </div>
+
+                <div class="works-container">
+                    <a href="https://arcaliahotel.com" target="_blank" class="work-card">
+                        <div class="work-name">Arcalia Hotel</div>
+                        <div class="work-desc">Elegance meets comfort. Explore the boutique hospitality experience.</div>
+                        <span class="visit-link">Visit Website →</span>
+                    </a>
+
+                    <a href="#" class="work-card">
+                        <div class="work-name">Project Two</div>
+                        <div class="work-desc">Advanced UI/UX development and system architecture design.</div>
+                        <span class="visit-link">Coming Soon</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
